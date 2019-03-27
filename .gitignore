@@ -1,0 +1,11 @@
+#IntelliJ
+*.iml
+.idea/
+target/*
+
+
+#Gradle
+.gradletasknamecache
+.gradle/
+build/
+bin/

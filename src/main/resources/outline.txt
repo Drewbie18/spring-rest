@@ -1,0 +1,113 @@
+Data Dictionary
+The data export consists of 7 files in the data directory,
+corresponding to the following entities:
+
+Users (sellers and buyers)
+Venues
+Categories
+Dates (2008 only)
+Events
+Event Ticket Listings
+Event Ticket Sales
+
+
+Users
+Pipe-separated fields:
+
+user id (primary key)
+username
+first name
+last name
+address:
+
+city
+state
+email
+phone
+
+
+preference flags:
+
+sports
+theatre
+concerts
+jazz
+classical
+opera
+rock
+vegas
+broadway
+musicals
+
+
+
+
+Venues
+Pipe-separated fields:
+
+venue id (primary key)
+venue name
+city
+state
+seating capacity
+
+
+Categories
+Pipe-separated fields:
+
+category id (primary key)
+category group
+category name
+category description
+
+
+Dates
+Pipe-separated fields:
+
+id (primary key)
+calendar date
+day
+week
+month
+quarter
+year
+holiday flag
+
+
+Events
+Pipe-separated fields:
+
+event id (primary key)
+venue id
+category id
+date id
+event name
+event start time
+
+
+Listings
+Pipe-separated fields:
+
+listing id (primary key)
+seller id
+event id
+date id
+number of tickets
+price per ticket
+total price
+listing timestamp
+
+
+Sales
+Tab-separated fields:
+
+sale id (primary key)
+listing id
+seller id
+buyer id
+event id
+date id
+quantity sold
+price paid
+commission amount
+sale timestamp
