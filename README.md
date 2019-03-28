@@ -9,7 +9,7 @@ flyway to create the data model. This was done on Windows 10 home edition so the
 
 This will create a docker machine instance and a running mysql server in that instance. 
 Also will expose ports to run flyway migration on it. 
-- Create new machine: `docker-machine create --virtualbox [NAME OF VM]`
+- Create new machine: `docker-machine create -d virtualbox [NAME OF VM]`
 - SSH into machine: `docker-machine ssh vm1`
 - Run container IN docker-machine: `docker run --name [NAME OF CONTAINER] -p 3306:3306 -e MYSQL_ROOT_PASSWORD=admin
 -e MYSQL_DATABASE=eval -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin mysql:5.6`
@@ -20,8 +20,8 @@ Once the docker machine VM  is running the MYSQL container, it's useful to get i
 interact with the MYSQL server. 
 - From within the docker-machine run: `docker exec -it [NAME OF CONTAINER] /bin/bash`
 - Login to MYSQL, using creds it was created with in docker command: `mysql -u admin -p`
-- Create the database you wish to use in this setup the database name is `eval`. So
-the command `create database eval`
+- If you did not run the exact docker command above you may need to create the database, in this example its 
+called`eval`. `create database eval;`
 
 #### Notes
 Local install and containerized versions do not behave the same way. There is casing differences.
@@ -42,4 +42,8 @@ populate it.
 - Run `gradlew bootRun`
 - Verify that the REST API's are running via the Swagger-UI endpoint: 
 `http://localhost:8080/swagger-ui.html#/`
+    - Test `/ids` endpoint: type = category
+    - Test `/object` endpoint: type = user, id = 1
+    - Test `/promo` endpoint: date = 2008-01-24, type = 8, city = Chicago
+
  
